@@ -1,3 +1,6 @@
-# web-tech-projekt
+# web-tech-projekt Einkaufsliste
 
-Einkaufsliste, Einkaufsgegenstände hinzufügen und entfernen, Anzahl ändern, ggf. Gewicht/Einheiten
+Projektidee: "Einkaufsliste"
+
+Eine Einkaufsliste auf der Gegenstände/Produkte aus einer Datenbank hinzugefügt werden können. Dabei soll man die Anzahl ändern können in der jeweiligen Einheit des Produktes.
+Wenn die Einkaufsliste erstellt wurde, erfolgt die Ausgabe als Tabelle.
