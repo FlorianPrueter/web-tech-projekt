@@ -12,7 +12,7 @@ public class ItemEntity {
     private long id;
 
     @Column(name = "name", nullable = false)
-    private String Name;
+    private String fullName;
 
     @Column(name = "amount")
     private int amount;
@@ -20,9 +20,8 @@ public class ItemEntity {
     @Column(name = "is_selected")
     private boolean selected;
 
-    public ItemEntity(long id, String name, int amount, boolean selected) {
-        this.id = id;
-        Name = name;
+    public ItemEntity(String fullName, int amount, boolean selected) {
+        this.fullName = fullName;
         this.amount = amount;
         this.selected = selected;
     }
@@ -33,12 +32,12 @@ public class ItemEntity {
         return id;
     }
 
-    public String getName() {
-        return Name;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setName(String name) {
-        Name = name;
+    public void setFullName(String name) {
+        fullName = fullName;
     }
 
     public int getAmount() {

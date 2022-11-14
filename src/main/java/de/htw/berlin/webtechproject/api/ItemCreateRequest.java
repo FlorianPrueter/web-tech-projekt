@@ -1,26 +1,14 @@
 package de.htw.berlin.webtechproject.api;
 
-public class Item {
-
-    private long id;
+public class ItemCreateRequest {
     private String fullName;
     private int amount;
     private boolean selected;
 
-
-    public Item(long id, String fullName, int amount, boolean selected) {
-        this.id = id;
+    public ItemCreateRequest(String fullName, int amount, boolean selected) {
         this.fullName = fullName;
         this.amount = amount;
         this.selected = selected;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public String getFullName() {
