@@ -1,7 +1,7 @@
 package de.htw.berlin.webtechproject.service;
 
 import de.htw.berlin.webtechproject.api.Item;
-import de.htw.berlin.webtechproject.api.ItemCreateRequest;
+import de.htw.berlin.webtechproject.api.ItemManipulationRequest;
 import de.htw.berlin.webtechproject.persistence.ItemEntity;
 import de.htw.berlin.webtechproject.persistence.ItemRepository;
 import org.springframework.stereotype.Service;
@@ -30,10 +30,34 @@ public class ItemService {
         return itemEntity.map(this::transformEntity).orElse(null);
     }
 
-    public Item create(ItemCreateRequest request) {
+    public Item create(ItemManipulationRequest request) {
         var itemEntity = new ItemEntity(request.getFullName(), request.getAmount(), request.isSelected());
         itemEntity = itemRepository.save(itemEntity);
         return transformEntity(itemEntity);
+    }
+
+    public Item update(Long id, ItemManipulationRequest request) {
+        var itemEntityOptional = itemRepository.findById(id);
+        if (itemEntityOptional.isEmpty()) {
+            return null;
+        }
+
+        var itemEntity = itemEntityOptional.get();
+        itemEntity.setFullName(request.getFullName());
+        itemEntity.setAmount(request.getAmount());
+        itemEntity.setSelected(request.isSelected());
+        itemEntity = itemRepository.save(itemEntity);
+
+        return transformEntity(itemEntity);
+    }
+
+    public boolean deleteById(Long id) {
+        if (!itemRepository.existsById(id)) {
+            return false;
+        }
+
+        itemRepository.deleteById(id);
+        return true;
     }
 
     private Item transformEntity(ItemEntity itemEntity) {

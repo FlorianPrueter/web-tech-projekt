@@ -1,11 +1,11 @@
 package de.htw.berlin.webtechproject.api;
 
-public class ItemCreateRequest {
+public class ItemManipulationRequest {
     private String fullName;
     private int amount;
     private boolean selected;
 
-    public ItemCreateRequest(String fullName, int amount, boolean selected) {
+    public ItemManipulationRequest(String fullName, int amount, boolean selected) {
         this.fullName = fullName;
         this.amount = amount;
         this.selected = selected;

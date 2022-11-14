@@ -1,7 +1,7 @@
 package de.htw.berlin.webtechproject;
 
 import de.htw.berlin.webtechproject.api.Item;
-import de.htw.berlin.webtechproject.api.ItemCreateRequest;
+import de.htw.berlin.webtechproject.api.ItemManipulationRequest;
 import de.htw.berlin.webtechproject.service.ItemService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -32,9 +32,21 @@ public class ItemRestController {
     }
 
     @PostMapping(path = "/api/v1/items")
-    public ResponseEntity<Void> createItem(@RequestBody ItemCreateRequest request) throws URISyntaxException {
+    public ResponseEntity<Void> createItem(@RequestBody ItemManipulationRequest request) throws URISyntaxException {
         var item = itemService.create(request);
         URI uri = new URI("/api/v1/items" + item.getId());
         return ResponseEntity.created(uri).build();
+    }
+
+    @PutMapping(path = "/api/v1/items/{id}")
+    public ResponseEntity<Item> updateItem(@PathVariable Long id, @RequestBody ItemManipulationRequest request) {
+        var item = itemService.update(id, request);
+        return item != null? ResponseEntity.ok(item) : ResponseEntity.notFound().build();
+    }
+
+    @DeleteMapping(path = "/api/v1/items/{id}")
+    public ResponseEntity<Void> deleteItem(@PathVariable Long id) {
+        boolean successful = itemService.deleteById(id);
+        return successful? ResponseEntity.ok().build() : ResponseEntity.notFound().build();
     }
 }
