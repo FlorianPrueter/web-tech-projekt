@@ -8,5 +8,14 @@
       <jdbc-url>jdbc:postgresql://ec2-54-76-43-89.eu-west-1.compute.amazonaws.com:5432/da93tt30t0iorv</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="web-tech-project.main/Hibernate" uuid="a9b2d0d8-d328-47c2-acda-b6da852ad0de">
+      <driver-ref>athena</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>Hibernate</remarks>
+      <jdbc-driver>com.simba.athena.jdbc42.Driver</jdbc-driver>
+      <jdbc-url>${DATASOURCE_URL}</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
