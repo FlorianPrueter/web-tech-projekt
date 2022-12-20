@@ -1,6 +1,6 @@
 package de.htw.berlin.webtechproject.api;
 
-public class ItemManipulationRequest {
+public class  ItemManipulationRequest {
     private String fullName;
     private int amount;
     private boolean selected;
@@ -10,6 +10,8 @@ public class ItemManipulationRequest {
         this.amount = amount;
         this.selected = selected;
     }
+
+    public ItemManipulationRequest() {}
 
     public String getFullName() {
         return fullName;
