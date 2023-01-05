@@ -31,7 +31,7 @@ public class ItemService {
     }
 
     public Item create(ItemManipulationRequest request) {
-        var itemEntity = new ItemEntity(request.getFullName(), request.getAmount(), request.isSelected());
+        var itemEntity = new ItemEntity(request.getName(), request.getImageUrl());
         itemEntity = itemRepository.save(itemEntity);
         return transformEntity(itemEntity);
     }
@@ -43,9 +43,8 @@ public class ItemService {
         }
 
         var itemEntity = itemEntityOptional.get();
-        itemEntity.setFullName(request.getFullName());
-        itemEntity.setAmount(request.getAmount());
-        itemEntity.setSelected(request.isSelected());
+        itemEntity.setName(request.getName());
+        itemEntity.setImageUrl(request.getImageUrl());
         itemEntity = itemRepository.save(itemEntity);
 
         return transformEntity(itemEntity);
@@ -63,9 +62,8 @@ public class ItemService {
     private Item transformEntity(ItemEntity itemEntity) {
         return  new Item(
                 itemEntity.getId(),
-                itemEntity.getFullName(),
-                itemEntity.getAmount(),
-                itemEntity.getSelected()
+                itemEntity.getName(),
+                itemEntity.getImageUrl()
         );
     }
 }

@@ -12,47 +12,37 @@ public class ItemEntity {
     private long id;
 
     @Column(name = "name", nullable = false)
-    private String fullName;
+    private String name;
 
-    @Column(name = "amount")
-    private int amount;
+    @Column(name = "imageUrl")
+    private String imageUrl;
 
-    @Column(name = "is_selected")
-    private boolean selected;
-
-    public ItemEntity(String fullName, int amount, boolean selected) {
-        this.fullName = fullName;
-        this.amount = amount;
-        this.selected = selected;
+    public ItemEntity(String name, String imageUrl) {
+        this.name = name;
+        this.imageUrl = imageUrl;
     }
 
-    protected ItemEntity() {}
+    protected ItemEntity() {
+    }
 
     public long getId() {
         return id;
     }
 
-    public String getFullName() {
-        return fullName;
+    public String getName() {
+        return name;
     }
 
-    public void setFullName(String name) {
-        fullName = fullName;
+    public void setName(String name) {
+        name = name;
     }
 
-    public int getAmount() {
-        return amount;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setAmount(int amount) {
-        this.amount = amount;
-    }
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
 
-    public boolean getSelected() {
-        return selected;
-    }
-
-    public void setSelected(boolean selected) {
-        this.selected = selected;
     }
 }

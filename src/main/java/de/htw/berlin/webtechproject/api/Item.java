@@ -3,16 +3,14 @@ package de.htw.berlin.webtechproject.api;
 public class Item {
 
     private long id;
-    private String fullName;
-    private int amount;
-    private boolean selected;
+    private String name;
+    private String imageUrl;
 
 
-    public Item(long id, String fullName, int amount, boolean selected) {
+    public Item(long id, String name, String imageUrl) {
         this.id = id;
-        this.fullName = fullName;
-        this.amount = amount;
-        this.selected = selected;
+        this.name = name;
+        this.imageUrl = imageUrl;
     }
 
     public long getId() {
@@ -23,27 +21,21 @@ public class Item {
         this.id = id;
     }
 
-    public String getFullName() {
-        return fullName;
+    public String getName() {
+        return name;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getAmount() {
-        return amount;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setAmount(int amount) {
-        this.amount = amount;
-    }
-
-    public boolean isSelected() {
-        return selected;
-    }
-
-    public void setSelected(boolean selected) {
-        this.selected = selected;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }
+
+
