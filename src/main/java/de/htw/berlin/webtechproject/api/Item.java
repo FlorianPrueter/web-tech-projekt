@@ -5,12 +5,13 @@ public class Item {
     private long id;
     private String name;
     private String imageUrl;
+    private boolean completed;
 
-
-    public Item(long id, String name, String imageUrl) {
+    public Item(long id, String name, String imageUrl, boolean completed) {
         this.id = id;
         this.name = name;
         this.imageUrl = imageUrl;
+        this.completed = completed;
     }
 
     public long getId() {
@@ -36,6 +37,12 @@ public class Item {
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }
+
+    public boolean isCompleted() {
+        return completed;
+    }
+
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
+    }
 }
-
-

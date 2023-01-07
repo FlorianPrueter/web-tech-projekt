@@ -17,9 +17,13 @@ public class ItemEntity {
     @Column(name = "imageUrl")
     private String imageUrl;
 
-    public ItemEntity(String name, String imageUrl) {
+    @Column(name = "is_completed")
+    private boolean completed;
+
+    public ItemEntity(String name, String imageUrl, boolean completed) {
         this.name = name;
         this.imageUrl = imageUrl;
+        this.completed = completed;
     }
 
     protected ItemEntity() {
@@ -43,6 +47,12 @@ public class ItemEntity {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+    public boolean isCompleted() {
+        return completed;
+    }
 
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
     }
 }
