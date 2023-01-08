@@ -44,6 +44,22 @@ public class ItemRestController {
         return item != null? ResponseEntity.ok(item) : ResponseEntity.notFound().build();
     }
 
+    @GetMapping("/items/sort/{sortOrder}")
+    public List<Item> getItemsSorted(@PathVariable String sortOrder) {
+        // retrieve the items from the database
+        List<Item> items = itemService.findAll();
+
+        // sort the items based on the sort order
+        if (sortOrder.equals("name")) {
+            items.sort((a, b) -> a.getName().compareTo(b.getName()));
+        } else if (sortOrder.equals("date")) {
+            items.sort((a, b) -> a.getDateAdded().compareTo(b.getDateAdded()));
+        }
+
+        // return the sorted items
+        return items;
+    }
+
     @DeleteMapping(path = "/api/v1/items/{id}")
     public ResponseEntity<Void> deleteItem(@PathVariable Long id) {
         boolean successful = itemService.deleteById(id);

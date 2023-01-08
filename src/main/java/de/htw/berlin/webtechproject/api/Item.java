@@ -1,17 +1,29 @@
 package de.htw.berlin.webtechproject.api;
 
+import java.time.LocalDateTime;
+
 public class Item {
 
     private long id;
     private String name;
     private String imageUrl;
     private boolean completed;
+    private LocalDateTime dateAdded;
 
-    public Item(long id, String name, String imageUrl, boolean completed) {
+    public Item(long id, String name, String imageUrl, boolean completed, LocalDateTime dateAdded) {
         this.id = id;
         this.name = name;
         this.imageUrl = imageUrl;
         this.completed = completed;
+        this.dateAdded = dateAdded;
+    }
+
+    public LocalDateTime getDateAdded() {
+        return dateAdded;
+    }
+
+    public void setDateAdded(LocalDateTime dateAdded) {
+        this.dateAdded = dateAdded;
     }
 
     public long getId() {
